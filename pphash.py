@@ -26,7 +26,7 @@ CONFIG = {
     'argon_time_cost': 8,
     'argon_parallelism': 4,
 
-    # prefix the password with one each of upper-case, lower-case, digit and symbol to ensure password compliance
+    # prefix the password with one each of lower-case, upper-case, digit and symbol to ensure password compliance
     'password_prefix': 'pP1#'
 }
 
@@ -36,7 +36,7 @@ if __name__ == '__main__':
     passphrase = sys.argv[1].encode('latin1')
 
     # in order to produce a consistent output we need to use the same salt each time. The salt is derived
-    # as a cryptographic hash of the pass phrase
+    # as a cryptographic hash of the passphrase
     salt = sha3_256(passphrase).digest()
 
     # generate the argon2 hash
